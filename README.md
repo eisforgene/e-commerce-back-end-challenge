@@ -1,5 +1,5 @@
 # ecommerce_db
-https://github.com/eisforgene/e-commerce-back-end
+(https://github.com/eisforgene/e-commerce-back-end-challenge)
 
 ## Description:
 The challenge was to build the back end for an e-commerce site. We were asked to take a working Express.js API and configure it to use Sequelize to interact with a MySql database.
@@ -20,4 +20,4 @@ Node, Javascript
 Markdown Guide Semantic Tags JavaScript Node.js Jestjs.io
 
 ##### Demo:
-[Challenge-Video-Demo]
+[Challenge-Video-Demo](https://watch.screencastify.com/v/JqxhZopsm23Xt54WAABt)
