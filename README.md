@@ -1,4 +1,4 @@
-# Team Profile Generator (Object Oriented Programming Challenge)
+# ecommerce_db
 https://github.com/eisforgene/e-commerce-back-end
 
 ## Description:
@@ -20,4 +20,4 @@ Node, Javascript
 Markdown Guide Semantic Tags JavaScript Node.js Jestjs.io
 
 ##### Demo:
-[Challenge-Video-Demo]https://drive.google.com/file/d/1JKALlUpDrL7RJMkHTjvDOlekCAhpxD95/view
+[Challenge-Video-Demo]
