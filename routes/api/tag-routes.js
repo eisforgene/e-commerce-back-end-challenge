@@ -7,10 +7,20 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    include: [{model:Product, through: ProductTag}]
-  }).then(function(data){
-    console.log('Find all tags', data),
-    res.json(data)
+    attributes: [
+      'id',
+      'tag_name'
+    ],
+    include: [
+      {
+        model: Product
+      }
+    ]
+  })
+  .then(dbTagData => res.json(dbTagData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   })
 });
 
@@ -21,32 +31,45 @@ router.get('/:id', (req, res) => {
     where: {
       id:req.params.id
     },
-    include: [{model:Product, through: ProductTag}]
-  }).then(function(data){
-    console.log('Find one tag', data),
-    res.json(data)
+    attributes: [
+      'id',
+      'tag_name'
+    ],
+    include: [{model: Product}]
+  }).then(dbTagData => res.json(dbTagData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   })
 });
 
 router.post('/', (req, res) => {
   // create a new tag
-  Tag.create(req.body)
-  .then(function(data){
-    console.log('New Tag', data),
-    res.json(data)
+  Tag.create({
+    tag_name: req.body.tag_name
+  })
+  .then(dbTagData => res.json(dbTagData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   })
 });
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update(req.body, {
+  Tag.update(
+    {
+      tag_name: req.body.tag_name
+    },
+    {
     where: {
       id: req.params.id
     },
   })
-  .then(function(data){
-    console.log('Updated Tag', data),
-    res.json(data)
+  .then(dbTagData => res.json(dbTagData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   })
 });
 
@@ -57,9 +80,10 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     },
   })
-  .then(function(data){
-    console.log('Deleted Tag', data),
-    res.json(data)
+  .then(dbTagData => res.json(dbTagData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   })
 });
 
